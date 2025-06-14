@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3 (Python 3.13.4 on darwin)" generated="2025-06-13T09:05:34.052257" rpa="false" schemaversion="5">
+<suite id="s1" name="Secondrobotcode" source="/Users/b0g06nk/PycharmProjects/RobotFramework/secondrobotcode.robot">
+<test id="s1-t1" name="TC_001_Get_Request_003" line="12">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-06-13T09:05:34.166330" level="INFO">Creating Session using : alias=Get_details, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>Get_details</arg>
+<arg>${Base_Url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-06-13T09:05:34.166239" elapsed="0.000186"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-06-13T09:05:35.686576" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/booking/003 
+ path_url=/booking/003 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-06-13T09:05:35.686875" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/booking/003 
+ status=200, reason=OK 
+ headers={'Content-Length': '168', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Fri, 13 Jun 2025 03:35:35 GMT', 'Etag': 'W/"a8-WGaUfy+daw3c5NdOvG0ElW+NWmc"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=V6NVwI4pzxW0JnbMxFEvRuM5WrTZKWqOA8xNbTRWt20%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1749785735"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=V6NVwI4pzxW0JnbMxFEvRuM5WrTZKWqOA8xNbTRWt20%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1749785735"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ body={"firstname":"Jim","lastname":"Brown","totalprice":186,"depositpaid":true,"bookingdates":{"checkin":"2021-10-09","checkout":"2023-01-21"},"additionalneeds":"Breakfast"} 
+ </msg>
+<msg time="2025-06-13T09:05:35.687013" level="INFO">/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-13T09:05:35.687395" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<var>${resp}</var>
+<arg>Get_details</arg>
+<arg>/booking/003</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-06-13T09:05:34.166515" elapsed="1.520928"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${resp.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-13T09:05:35.688141" elapsed="0.001016"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${resp.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-13T09:05:35.689405" elapsed="0.000693"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-06-13T09:05:35.691016" level="INFO">${status_code} = 200</msg>
+<var>${status_code}</var>
+<arg>${resp.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-06-13T09:05:35.690320" elapsed="0.000730"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-06-13T09:05:35.691304" elapsed="0.000224"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-06-13T09:05:35.692287" level="INFO">${body} = {"firstname":"Jim","lastname":"Brown","totalprice":186,"depositpaid":true,"bookingdates":{"checkin":"2021-10-09","checkout":"2023-01-21"},"additionalneeds":"Breakfast"}</msg>
+<var>${body}</var>
+<arg>${resp.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-06-13T09:05:35.691739" elapsed="0.000577"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-06-13T09:05:35.692709" level="FAIL">'{"firstname":"Jim","lastname":"Brown","totalprice":186,"depositpaid":true,"bookingdates":{"checkin":"2021-10-09","checkout":"2023-01-21"},"additionalneeds":"Breakfast"}' does not contain 'Mark'</msg>
+<arg>${body}</arg>
+<arg>Mark</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-06-13T09:05:35.692488" elapsed="0.000432">'{"firstname":"Jim","lastname":"Brown","totalprice":186,"depositpaid":true,"bookingdates":{"checkin":"2021-10-09","checkout":"2023-01-21"},"additionalneeds":"Breakfast"}' does not contain 'Mark'</status>
+</kw>
+<status status="FAIL" start="2025-06-13T09:05:34.165866" elapsed="1.527335">'{"firstname":"Jim","lastname":"Brown","totalprice":186,"depositpaid":true,"bookingdates":{"checkin":"2021-10-09","checkout":"2023-01-21"},"additionalneeds":"Breakfast"}' does not contain 'Mark'</status>
+</test>
+<test id="s1-t2" name="TC_002_Get_Request_172" line="28">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-06-13T09:05:35.694085" level="INFO">Creating Session using : alias=Get_details, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>Get_details</arg>
+<arg>${Base_Url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-06-13T09:05:35.693954" elapsed="0.000327"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-06-13T09:05:36.870925" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/booking/172 
+ path_url=/booking/172 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-06-13T09:05:36.871117" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/booking/172 
+ status=404, reason=Not Found 
+ headers={'Content-Length': '9', 'Content-Type': 'text/plain; charset=utf-8', 'Date': 'Fri, 13 Jun 2025 03:35:36 GMT', 'Etag': 'W/"9-0gXL1ngzMqISxa6S1zx3F4wtLyg"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=bMh58HUMbqEDRRX%2FJNYJDeI5LCfjcrt8YdydKzEW%2FX8%3D\\u0026sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add\\u0026ts=1749785736"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=bMh58HUMbqEDRRX%2FJNYJDeI5LCfjcrt8YdydKzEW%2FX8%3D&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;ts=1749785736"', 'Server': 'Heroku', 'Via': '1.1 heroku-router', 'X-Powered-By': 'Express'} 
+ body=Not Found 
+ </msg>
+<msg time="2025-06-13T09:05:36.871296" level="INFO">/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'restful-booker.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-06-13T09:05:36.871606" level="FAIL">HTTPError: 404 Client Error: Not Found for url: https://restful-booker.herokuapp.com/booking/172</msg>
+<var>${resp}</var>
+<arg>Get_details</arg>
+<arg>/booking/172</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-06-13T09:05:35.694431" elapsed="1.194095">HTTPError: 404 Client Error: Not Found for url: https://restful-booker.herokuapp.com/booking/172</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${resp.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-06-13T09:05:36.889057" elapsed="0.000034"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${resp.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-06-13T09:05:36.889226" elapsed="0.000020"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<var>${status_code}</var>
+<arg>${resp.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="NOT RUN" start="2025-06-13T09:05:36.889374" elapsed="0.000019"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2025-06-13T09:05:36.889523" elapsed="0.000018"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<var>${body}</var>
+<arg>${resp.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="NOT RUN" start="2025-06-13T09:05:36.889664" elapsed="0.000019"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${body}</arg>
+<arg>Doe</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2025-06-13T09:05:36.889813" elapsed="0.000019"/>
+</kw>
+<status status="FAIL" start="2025-06-13T09:05:35.693573" elapsed="1.196496">HTTPError: 404 Client Error: Not Found for url: https://restful-booker.herokuapp.com/booking/172</status>
+</test>
+<status status="FAIL" start="2025-06-13T09:05:34.053724" elapsed="2.836830"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Secondrobotcode" id="s1" pass="0" fail="2" skip="0">Secondrobotcode</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
