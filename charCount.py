@@ -8,7 +8,7 @@ print(filtered_sentence)
 
 from collections import Counter
 
-char_count = Counter(filtered_sentence) # key valua pairs
+char_count = Counter(filtered_sentence) # key value pairs
 
 print(char_count)
 

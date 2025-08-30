@@ -1,7 +1,8 @@
-#avg. of tress height
+#avg. of trees height
 
 def average(arr):
     this_set = set(arr)
+    print(this_set)
     avg = sum(this_set)/len(this_set)
     return avg
 

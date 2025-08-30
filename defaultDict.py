@@ -1,6 +1,7 @@
 from collections import defaultdict
 input_n, input_m = map(int, input("Enter grpA size, grpB size: ").split())
 d = defaultdict(list)
+print(d)
 for i in range(input_n):
     ans1 = input("Grp A contains: ")
     d[ans1].append(i+1)

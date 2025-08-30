@@ -4,7 +4,7 @@ students = [
     {"name": "Charlie", "age": 19, "grades": [88, 92, 85]},
     {"name": "Diana", "age": 21, "grades": [60, 65, 70]}
 ]
-
+print(students)
 print("Students with average grade > 80:\n")
 
 for student in students:

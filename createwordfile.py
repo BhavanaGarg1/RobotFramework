@@ -74,19 +74,4 @@ for i in range(1,100):
         ws.cell(row=i, column=3).value = fake_data.address()
 wb.save("excel_test_data7.xlsx")
 
-#To create multiple columns
-from faker import Faker
-from openpyxl import Workbook
-
-wb = Workbook()
-ws = wb.active
-fake_data = Faker()
-
-for i in range(1,100):
-    for j in range(1,4):
-        ws.cell(row=i,column =1).value = fake_data.name()
-        ws.cell(row=i, column=2).value = fake_data.email()
-        ws.cell(row=i, column=3).value = fake_data.address()
-wb.save("excel_test_data7.xlsx")
-
 

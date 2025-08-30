@@ -1,3 +1,4 @@
+
 from collections import Counter
 
 tot_num_shoes = int(input("Enter num of shoes in the shop :"))

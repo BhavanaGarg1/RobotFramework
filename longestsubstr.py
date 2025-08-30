@@ -1,4 +1,4 @@
-def longest_unique_substring(s):
+    def longest_unique_substring(s):
     start = 0
     max_len = 0
     max_substring = ""
@@ -24,3 +24,17 @@ print(f"Longest unique substring in '{input_str}' is: '{result}'")
 # •	seen: Dictionary to store the last index of each character
 # •	If a character repeats within the current window, we slide the window forward.
 # ________________________________________
+
+# def longest_unique_substring(s):
+#     longest = ""
+#
+#     for i in range(len(s)):
+#         current = ""
+#         for j in range(i, len(s)):
+#             if s[j] in current:
+#                 break
+#             current += s[j]
+#         if len(current) > len(longest):
+#             longest = current
+#
+#     return longest

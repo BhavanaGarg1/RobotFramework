@@ -12,3 +12,4 @@ if __name__ == '__main__':
     merge_the_tools(string, k)
 
 # AABCAAADA
+# 3
