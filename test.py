@@ -1,17 +1,27 @@
+# Input:numbers_string = "4,2,4,3,2,4,1,3,2"
+# Output:[(4, 3), (2, 3), (3, 2), (1, 1)]
+
+input = [1, 3, 1, 3, 2, 2, 3, 1, 3]
 
 
+def char_freq(s):
+    freq = {}
+    for char in s:
+        if char in freq:
+            freq[char] += 1
+        else:
+            freq[char] = 1
 
-# with open("C:\\Users\\dinesh garg\\PycharmProjects\\DataAutomation\\name.txt","a") as f:
-#     new=f.write("Kathi")
+    return freq
 
 
-with open("C:\\Users\\dinesh garg\\PycharmProjects\\DataAutomation\\name.txt","r") as f:
-    new=f.read()
-    print(new)
-    s = new.replace("Bhavana","Urmila")
+result = char_freq(input)
+print(result)
 
-with open("C:\\Users\\dinesh garg\\PycharmProjects\\DataAutomation\\name.txt","w") as f:
-    f.write(s)
+result1 = dict(sorted(result.items(),key= lambda x : x[1],reverse=True))
+for char,count in result1.items():
+    print(f'{char} is repeated {count} times')
+
 
 
 
