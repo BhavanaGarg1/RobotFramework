@@ -1,0 +1,37 @@
+[
+    {
+        "id": 779,
+        "name": "Tiffany Freeman",
+        "email": "lscott@example.net",
+        "address": "73116 Kennedy Inlet, North Terryside, AL 68582",
+        "is_active": true
+    },
+    {
+        "id": 783,
+        "name": "Julie Sanchez",
+        "email": "beckerjoseph@example.com",
+        "address": "151 Geoffrey Spurs Suite 451, Aaronburgh, MS 94832",
+        "is_active": true
+    },
+    {
+        "id": 789,
+        "name": "Nicholas Tanner",
+        "email": "turnertonya@example.com",
+        "address": "4781 Solis Extension Apt. 036, Laneville, IA 58141",
+        "is_active": true
+    },
+    {
+        "id": 586,
+        "name": "Yolanda Burke",
+        "email": "vbarker@example.com",
+        "address": "41768 Mcneil Groves, South Andrea, OK 58173",
+        "is_active": true
+    },
+    {
+        "id": 452,
+        "name": "Erika Murphy",
+        "email": "matajennifer@example.com",
+        "address": "91634 Brandy Fields Suite 862, Kimberlyfurt, HI 99121",
+        "is_active": false
+    }
+]
